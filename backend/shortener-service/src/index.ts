@@ -1,5 +1,6 @@
-import express from 'express';
+import { bootstrap } from './bootstrap.js';
 
-const app = express();
-app.get('/ping', (_, res) => res.send('pong'));
-app.listen(3000, () => console.log('shortener-service:3000'));
+bootstrap().catch((err) => {
+  console.error('Failed to start:', err);
+  process.exit(1);
+});
