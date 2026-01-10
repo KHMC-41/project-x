@@ -1,6 +1,5 @@
 {
   "extension": ["ts"],
-  "spec": "test/unit/**/*.test.ts",
   "require": ["tsx"],
   "recursive": true
 }

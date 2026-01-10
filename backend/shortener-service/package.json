@@ -7,7 +7,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "lint": "eslint src --ext .ts",
-    "test": "mocha"
+    "test:unit": "mocha 'test/unit/**/*.test.ts'"
   },
   "keywords": [],
   "author": "",
