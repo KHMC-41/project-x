@@ -5,11 +5,14 @@ services:
       target: base
     ports:
       - "3001:3000"
+    env_file:
+      - ./backend/auth-service/.env
     volumes:
       - ./backend/auth-service:/app
       - /app/node_modules
     command: >
       sh -c "npm install --loglevel=notice &&
+             npx prisma generate &&
              npx tsc-watch --noClear --onSuccess 'node --enable-source-maps dist/index.js'"
     networks:
       - backend-network
@@ -25,11 +28,14 @@ services:
       target: base
     ports:
       - "3002:3000"
+    env_file:
+      - ./backend/shortener-service/.env
     volumes:
       - ./backend/shortener-service:/app
       - /app/node_modules
     command: >
       sh -c "npm install --loglevel=notice &&
+             npx prisma generate &&
              npx tsc-watch --noClear --onSuccess 'node --enable-source-maps dist/index.js'"
     networks:
       - backend-network
@@ -45,11 +51,14 @@ services:
       target: base
     ports:
       - "3003:3000"
+    env_file:
+      - ./backend/audit-log-service/.env
     volumes:
       - ./backend/audit-log-service:/app
       - /app/node_modules
     command: >
       sh -c "npm install --loglevel=notice &&
+             npx prisma generate &&
              npx tsc-watch --noClear --onSuccess 'node --enable-source-maps dist/index.js'"
     networks:
       - backend-network
@@ -61,4 +70,4 @@ services:
 
 networks:
   backend-network:
-    driver: bridge
+    name: url-shortener-backend
