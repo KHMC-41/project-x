@@ -2,6 +2,7 @@ export enum EnvVar {
   NODE_ENV = 'NODE_ENV',
   PORT = 'PORT',
   DATABASE_URL = 'DATABASE_URL',
+  JWT_SECRET = 'JWT_SECRET',
 }
 
 export enum NodeEnv {
@@ -30,4 +31,5 @@ export const env = {
   nodeEnv: getNodeEnv(),
   port: parseInt(getEnvVar(EnvVar.PORT), 10),
   databaseUrl: getEnvVar(EnvVar.DATABASE_URL),
+  jwtSecret: getEnvVar(EnvVar.JWT_SECRET),
 };
