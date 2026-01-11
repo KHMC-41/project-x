@@ -35,6 +35,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Prisma Format Check
+        run: npm run prisma:format:check
+
       - name: Build
         run: npm run build
 
